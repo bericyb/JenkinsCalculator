@@ -1,3 +1,4 @@
+import com.sun.tools.corba.se.idl.IncludeGen;
 
 class Calculator {
 
@@ -39,7 +40,22 @@ class Calculator {
     etc
      */
     int fibonacciNumberFinder(int n){
-        return 0;
+        /* Declare an array to store Fibonacci numbers. */
+        int f[] = new int[n+2]; // 1 extra to handle case, n = 0
+        int i;
+
+        /* 0th and 1st number of the series are 0 and 1*/
+        f[0] = 0;
+        f[1] = 1;
+
+        for (i = 2; i <= n; i++)
+        {
+       /* Add the previous 2 numbers in the series
+         and store it */
+            f[i] = f[i-1] + f[i-2];
+        }
+
+        return f[n];
     }
 
 
@@ -51,7 +67,8 @@ class Calculator {
     if int a = 16 then this method returns: 10000
      */
     String intToBinaryNumber(int n){
-        return null;
+
+        return Integer.toBinaryString(n);
     }
 
     /*
@@ -62,9 +79,15 @@ class Calculator {
 
     if you run this function twice with the same String input, it must return 2 unique String IDs
      */
-    String createUniqueID(String n){
 
-        return null;
+    //Create Unique ID that contains the string n
+    String createUniqueID(String n){
+        String randomID = n;
+        for (int i = 0; i < 15; i++) {
+            randomID += (char)(Math.random() * 26 + 'a');
+        }
+
+        return randomID;
     }
 
 
